@@ -13,9 +13,8 @@ _This is a project for Epicodus to practice using test driven development with R
 ## Specifications
 | Spec     | Behavior | Input    | Output   |
 | -------- | -------- | -------- | -------- |
-| 1 | return false if words are not anagrams  | "batty" | "false" |
+| 1 | return false if words are not anagrams  | "ruby" | "rat" |
 | 2 | return message if anagram, and displaying how many letters match if not a match  | "batty" | "These words aren't anagrams but 2 letters match: a, t." |
-
 
 ## Setup/Installation Requirements
 

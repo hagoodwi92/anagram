@@ -23,9 +23,11 @@ class Anagram
           return "Antigrams!"
         end 
       counter = 0
+      notMatch = []
       @word1.each do |letter1|
         @word2.each do |letter2|
           if (letter1 != letter2)
+            notMatch.push(letter2)
             counter += 1
           end
         end
@@ -81,4 +83,23 @@ class Anagram
 
     return @word1, @word2
   end
+
+  def return_letters
+    @word1 = @word1.downcase
+    @word2 = @word2.downcase
+    @word1 = @word1.split("")
+    @word2 = @word2.split("")
+    i = 1
+    match = []
+    @word1.each do |letter1|
+      if(@word1[i].include? letter1)
+        match.push(letter1)
+        i = i + 1
+      end
+    end
+    match = match.join(",")
+    return "These words aren't anagrams but 2 letters match: #{match}"
+  end
 end
+
+
