@@ -1,23 +1,27 @@
 require('pry')
 class Anagram
   def word_check(word1, word2)
-    counter = 0
-    word1 = word1.downcase
-    word2 = word2.downcase
-    word1 = word1.split("")
-    word2 = word2.split("")
-    word1.each do |letter1|
-      word2.each do |letter2|
-        if (letter1 == letter2)
-          counter += 1
+    if ((check_if_word(word1, word2) == true))
+      counter = 0
+      word1 = word1.downcase
+      word2 = word2.downcase
+      word1 = word1.split("")
+      word2 = word2.split("")
+      word1.each do |letter1|
+        word2.each do |letter2|
+          if (letter1 == letter2)
+            counter += 1
+          end
         end
       end
-    end
-    if (counter == word1.length() && counter == word2.length())
-      return "Anagrams!"
+      if (counter == word1.length() && counter == word2.length())
+        return "Anagrams!"
+      else
+        return "Not a match!"
+      end
     else
-      return "Not a match!"
-    end 
+      return "Not a real word."
+    end
   end
   def check_if_word(word1, word2)
     if ((word1.include? "a")| (word1.include? "i") | (word1.include? "e") | (word1.include? "o") | (word1.include? "u") | (word1.include? "y"))
@@ -29,7 +33,7 @@ class Anagram
     if ((result1 == true) & (result2 == true))
       return true
     else
-      return "Not a real word."
+      return false
     end
   end
   def antigrams(word1, word2)
@@ -55,9 +59,10 @@ class Anagram
     word1 = word1.downcase
     word1 = word1.scan(/\w/i)
     word1 = word1.join("")
-    word2.gsub(/\W/)
+    word2 = word2.downcase
+    word2 = word2.scan(/\w/i)
+    word2 = word2.join("")
 
-    return word1
-
+    return word1 + word2
   end
 end
