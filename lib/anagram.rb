@@ -26,13 +26,12 @@ class Anagram
       notMatch = []
       @word1.each do |letter1|
         @word2.each do |letter2|
-          if (letter1 != letter2)
-            notMatch.push(letter2)
+          if (letter1 == letter2)
             counter += 1
           end
         end
       end
-      if (@word1.length() == @word2.length())
+      if ((@word1.length() == counter) & (@word2.length() == counter))
         return "Anagrams!"
       else
         return return_letters()
@@ -48,6 +47,7 @@ class Anagram
     if ((@word2.include? "a")| (@word2.include? "i") | (@word2.include? "e") | (@word2.include? "o") | (@word2.include? "u") | (@word2.include? "y"))
       result2 = true
     end
+
     if ((result1 == true) & (result2 == true))
       return true
     else

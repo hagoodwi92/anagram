@@ -3,8 +3,8 @@ require('anagram')
 
 describe("anagram#word_check") do
   it("returns message if words are anagrams") do
-    words = Anagram.new("ruby","rat")
-    expect(words.word_check()).to(eq("These words aren't anagrams but the following letter/s match: r"))
+    words = Anagram.new("ruby","bury")
+    expect(words.word_check()).to(eq("Anagrams!"))
   end
   it("returns message if words are not anagrams") do
     words = Anagram.new("ruby","rat")
@@ -23,8 +23,8 @@ describe("anagram#word_check") do
     expect(words.antigrams()).to(eq("Antigrams!"))
   end
   it("removes punctuation and spaces") do
-    words = Anagram.new("acres ruby","cares bury")
-    expect(words.spaces()).to(eq(["acresruby", "caresbury"]))
+    words = Anagram.new("acres ruby eat","cares bury tea")
+    expect(words.spaces()).to(eq(["acresrubyeat", "caresburytea"]))
   end
   it("displays how many letters match if not a match") do
     words = Anagram.new("cat","batty")
