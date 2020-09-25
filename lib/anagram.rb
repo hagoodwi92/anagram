@@ -35,7 +35,7 @@ class Anagram
       if (@word1.length() == @word2.length())
         return "Anagrams!"
       else
-        return "Not a match!"
+        return return_letters()
       end
     else
       return "Not a real word."
@@ -85,20 +85,17 @@ class Anagram
   end
 
   def return_letters
-    @word1 = @word1.downcase
-    @word2 = @word2.downcase
-    @word1 = @word1.split("")
-    @word2 = @word2.split("")
-    i = 1
     match = []
     @word1.each do |letter1|
-      if(@word1[i].include? letter1)
-        match.push(letter1)
-        i = i + 1
+      @word2.each do |letter2|
+        if((@word1.include? letter1) & (@word2.include? letter1) & (@word1.include? letter2) & (@word2.include? letter2))
+          match.push(letter1)
+        end
       end
     end
+    match = match.uniq
     match = match.join(",")
-    return "These words aren't anagrams but 2 letters match: #{match}"
+    return "These words aren't anagrams but the following letter/s match: #{match}"
   end
 end
 

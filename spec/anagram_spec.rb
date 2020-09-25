@@ -4,11 +4,11 @@ require('anagram')
 describe("anagram#word_check") do
   it("returns message if words are anagrams") do
     words = Anagram.new("ruby","rat")
-    expect(words.word_check()).to(eq("Not a match!"))
+    expect(words.word_check()).to(eq("These words aren't anagrams but the following letter/s match: r"))
   end
   it("returns message if words are not anagrams") do
     words = Anagram.new("ruby","rat")
-    expect(words.word_check()).to(eq("Not a match!"))
+    expect(words.word_check()).to(eq("These words aren't anagrams but the following letter/s match: r"))
   end
   it("returns true if it is an anagram, case insensitive") do
     words = Anagram.new("Aridest","tardies")
@@ -28,8 +28,6 @@ describe("anagram#word_check") do
   end
   it("displays how many letters match if not a match") do
     words = Anagram.new("cat","batty")
-    expect(words.return_letters()).to(eq("These words aren't anagrams but 2 letters match: a,t"))
+    expect(words.word_check).to(eq("These words aren't anagrams but the following letter/s match: a,t"))
   end
-
 end
-#"These words aren't anagrams but 2 letters match: a, t."
