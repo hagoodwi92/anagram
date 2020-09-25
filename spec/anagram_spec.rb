@@ -20,8 +20,7 @@ describe("anagram#word_check") do
   end
   it("removes punctuation and spaces") do
     words = Anagram.new()
-    expect(words.spaces("Aridest acres!","tardies! cares")).to(eq("aridestacrestardiescares"))
+    expect(words.spaces("Aridest acres!","tardies! cares")).to(eq(["aridestacres", "tardiescares"]))
   end
-
 
 end
