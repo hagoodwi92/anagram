@@ -14,4 +14,9 @@ describe("anagram#word_check") do
     words = Anagram.new()
     expect(words.check_if_word("ruby","ruby")).to(eq(true))
   end
+  it("checks for 'antigrams' and returns a message") do
+    words = Anagram.new()
+    expect(words.antigrams("hi","bye")).to(eq("Antigrams!"))
+  end
+
 end

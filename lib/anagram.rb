@@ -32,4 +32,23 @@ class Anagram
       return "Not a real word."
     end
   end
+  def antigrams(word1, word2)
+    counter = 0
+    word1 = word1.downcase
+    word2 = word2.downcase
+    word1 = word1.split("")
+    word2 = word2.split("")
+    word1.each do |letter1|
+      word2.each do |letter2|
+        if (letter1 == letter2)
+          counter += 1
+        end
+      end
+    end
+    if (counter == 0)
+      return "Antigrams!"
+    else
+      return false
+    end  
+  end
 end
