@@ -51,4 +51,13 @@ class Anagram
       return false
     end  
   end
+  def spaces(word1, word2)
+    word1 = word1.downcase
+    word1 = word1.scan(/\w/i)
+    word1 = word1.join("")
+    word2.gsub(/\W/)
+
+    return word1
+
+  end
 end

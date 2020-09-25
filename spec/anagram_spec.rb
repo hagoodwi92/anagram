@@ -12,11 +12,16 @@ describe("anagram#word_check") do
   end
   it("checks for errors if words are not real words") do
     words = Anagram.new()
-    expect(words.check_if_word("ruby","ruby")).to(eq(true))
+    expect(words.check_if_word("ruby","rb")).to(eq("Not a real word."))
   end
   it("checks for 'antigrams' and returns a message") do
     words = Anagram.new()
     expect(words.antigrams("hi","bye")).to(eq("Antigrams!"))
   end
+  it("removes punctuation and spaces") do
+    words = Anagram.new()
+    expect(words.spaces("Aridest acres!","tardies! cares")).to(eq("aridestacres"))
+  end
+
 
 end
